@@ -17,7 +17,7 @@ createServer(async (req, res) => {
   try {
     let body = await readFile(file)
     if (relative === '/staff.html') {
-      body = Buffer.from(body.toString().replace('</body>', '<script src="/staff-enhancements.js"></script></body>'))
+      body = Buffer.from(body.toString().replace('<body>', '<body><script>if(sessionStorage.getItem("bpoStaffSignedIn")!=="true"){location.replace("/login")}</script>').replace('</body>', '<script src="/staff-enhancements.js"></script></body>'))
     }
     if (relative === '/index.html') {
       body = Buffer.from(body.toString().replace('</body>', '<script src="/admin-enhancements.js"></script></body>'))

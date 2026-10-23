@@ -40,4 +40,10 @@ mongodb://127.0.0.1:27017/bpo_system
 
 Store staff profiles, approval status, assignments, calls, tickets, attendance, billing, SLA records, complaints, recruitment records, and performance data in MongoDB collections. A server-side API should read and write these collections; browser local storage is only a temporary fallback for the static demo.
 
+## Excel exports
+
+The admin overview includes **Download data** on each staff member card. It downloads an Excel-compatible `.xls` file containing the staff profile and assigned data counts. The export includes calls, contacts, and campaigns for that staff member. The completion percentage is shown in the staff workspace task progress card (for example, `3/5` tasks completed and `60%`); the Excel file contains the underlying counts so the same percentage can be calculated in a spreadsheet.
+
+Staff pages are protected by the sign-in session. Opening `/staff.html` directly redirects to `/login` until the staff member submits the login form.
+
 For MongoDB Atlas, replace the local URI with the connection string provided by your Atlas cluster and keep the URI in a server-side environment variable rather than committing credentials to GitHub.
