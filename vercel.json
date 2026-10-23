@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/login", "destination": "/dist/login.html" },
+    { "source": "/staff.html", "destination": "/dist/staff.html" },
+    { "source": "/", "destination": "/dist/index.html" },
+    { "source": "/(.*)", "destination": "/dist/$1" }
+  ]
+}
