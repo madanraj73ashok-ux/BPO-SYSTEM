@@ -1,0 +1,2 @@
+import crypto from 'node:crypto';
+export default function handler(req,res){const raw=(req.headers.cookie||'').split(';').map(x=>x.trim()).find(x=>x.startsWith('bpo_admin='))?.slice(10);const user=process.env.ADMIN_USER||'';const expected=`${user}.${crypto.createHmac('sha256',process.env.ADMIN_PASSWORD||'').update(user).digest('hex')}`;return res.status(200).json({authenticated:Boolean(raw&&user&&crypto.timingSafeEqual(Buffer.from(raw),Buffer.from(expected)))})}

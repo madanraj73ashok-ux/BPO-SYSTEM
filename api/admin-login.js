@@ -1,0 +1,3 @@
+import crypto from 'node:crypto';
+function token(user){return `${user}.${crypto.createHmac('sha256',process.env.ADMIN_PASSWORD||'').update(user).digest('hex')}`}
+export default function handler(req,res){if(req.method!=='POST')return res.status(405).json({error:'Method not allowed'});const {username,password}=req.body||{};if(username!==process.env.ADMIN_USER||password!==process.env.ADMIN_PASSWORD)return res.status(401).json({error:'Invalid admin credentials'});res.setHeader('Set-Cookie',`bpo_admin=${token(username)}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=28800`);return res.status(200).json({ok:true})}
