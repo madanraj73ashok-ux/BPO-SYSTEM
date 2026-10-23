@@ -4,64 +4,52 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f6f7f4" />
-  <meta name="description" content="A clear, connected workspace for BPO operations." />
-  <title>BPO SYSTEM — Operations workspace</title>
+  <title>Sign in — BPO SYSTEM</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .staff-login { min-height: 100vh; display: grid; place-items: center; padding: 24px; overflow: hidden; background: radial-gradient(circle at 50% 0%, rgba(71, 164, 112, .18), transparent 45%), #f6f7f4; position: relative; }
+    .staff-login::before { content: ''; position: absolute; inset: -30%; background: conic-gradient(from 120deg, transparent, rgba(35, 153, 102, .12), transparent 35%, rgba(52, 125, 202, .1), transparent 65%); filter: blur(45px); animation: login-drift 18s ease-in-out infinite alternate; }
+    .staff-card { position: relative; z-index: 1; width: min(440px, 100%); padding: 36px; border: 1px solid rgba(223,230,223,.9); border-radius: 24px; background: rgba(255,255,255,.88); box-shadow: 0 24px 70px rgba(24,33,26,.12); backdrop-filter: blur(18px); }
+    .staff-mark { width: 48px; height: 48px; display: grid; place-items: center; margin-bottom: 24px; border-radius: 15px; color: #f5fff7; background: #147a4d; font-size: 24px; }
+    .staff-card h1 { margin: 0; color: #18211a; font: 800 30px/1.1 Manrope, sans-serif; letter-spacing: -.03em; }
+    .staff-card p { margin: 10px 0 28px; color: #66736a; }
+    .staff-field { display: grid; gap: 8px; margin: 16px 0; color: #334039; font-weight: 700; }
+    .staff-field input { width: 100%; box-sizing: border-box; padding: 13px 14px; border: 1px solid #cfd9d0; border-radius: 12px; color: #18211a; background: #fff; font: inherit; }
+    .staff-field input:focus { outline: 3px solid rgba(20,122,77,.16); border-color: #147a4d; }
+    .staff-submit { width: 100%; margin-top: 12px; padding: 14px; border: 0; border-radius: 12px; color: #fff; background: #147a4d; font: 700 15px Manrope, sans-serif; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+    .staff-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(20,122,77,.2); }
+    .staff-submit:hover { background: #0f633e; }
+    .staff-note { margin: 18px 0 0; text-align: center; font-size: 13px; color: #78847b; }
+    .staff-error { display: none; margin-top: 12px; padding: 10px 12px; border-radius: 10px; color: #8a2f2f; background: #fff0f0; font-size: 13px; }
+    @keyframes login-drift { from { transform: translate3d(-4%, 2%, 0) rotate(-4deg); } to { transform: translate3d(4%, -3%, 0) rotate(5deg); } }
+  </style>
 </head>
 <body>
-  <div class="app-shell">
-    <aside class="sidebar" id="sidebar">
-      <a class="brand" href="#overview" aria-label="BPO SYSTEM home">
-        <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5 19.4 12.6 28.5 16l-9.1 3.4L16 28.5l-3.4-9.1L3.5 16l9.1-3.4L16 3.5Z" fill="currentColor"/><circle cx="16" cy="16" r="2.3" fill="#18211a"/></svg></span>
-        <span><strong>BPO SYSTEM</strong><small>OPERATIONS CLOUD</small></span>
-      </a>
-      <button class="workspace-switch" data-action="manage-connection"><span class="workspace-avatar">B</span><span class="workspace-copy"><strong>BPO SYSTEM</strong><small>Workspace · connection settings</small></span><span class="chevron">⌄</span></button>
-      <div class="nav-label">WORKSPACE</div>
-      <nav class="primary-nav" aria-label="Main navigation">
-        <button class="nav-item active" data-page="overview"><span class="nav-icon">▦</span> Overview <span class="nav-count live-count">LIVE</span></button>
-        <button class="nav-item" data-page="contacts"><span class="nav-icon">◉</span> Contacts <span class="nav-count" id="contact-count">0</span></button>
-        <button class="nav-item" data-page="campaigns"><span class="nav-icon">◷</span> Campaigns</button>
-        <button class="nav-item" data-page="agents"><span class="nav-icon">♙</span> Agents</button>
-        <button class="nav-item" data-page="calls"><span class="nav-icon">⌕</span> Call log</button>
-        <button class="nav-item" data-page="quality"><span class="nav-icon">✳</span> Quality <span class="nav-dot"></span></button>
-        <button class="nav-item" data-page="reports"><span class="nav-icon">▥</span> Reports</button>
-      </nav>
-      <div class="sidebar-bottom">
-        <div class="support-card"><div class="support-glow"></div><div class="support-title">Your team, in sync.</div><p>Make every conversation count with one connected workspace.</p><button class="support-link" data-page="reports">Explore insights <span>↗</span></button></div>
-        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span> Settings</button>
-        <div class="profile-row"><span class="profile-avatar">MC</span><span class="profile-copy"><strong>Maya Chen</strong><small>Operations lead</small></span><button class="profile-menu" title="Profile options">···</button></div>
-      </div>
-    </aside>
-    <main class="main-area">
-      <header class="topbar">
-        <button class="mobile-menu" id="mobile-menu" aria-label="Open navigation">☰</button>
-        <div class="breadcrumbs"><span>BPO SYSTEM</span><b>/</b><strong id="crumb-current">Overview</strong></div>
-        <div class="top-actions">
-          <div class="search-wrap"><span>⌕</span><input id="global-search" type="search" placeholder="Search anything…" aria-label="Search anything" /><kbd>⌘ K</kbd></div>
-          <button class="icon-button" id="help-button" aria-label="Help">?</button>
-          <button class="icon-button notification-button" id="notification-button" aria-label="Notifications">♧<i></i></button>
-          <span class="top-avatar">MC</span>
-        </div>
-      </header>
-      <div class="page-wrap">
-        <section class="page active" id="page-overview"></section>
-        <section class="page" id="page-contacts"></section>
-        <section class="page" id="page-campaigns"></section>
-        <section class="page" id="page-agents"></section>
-        <section class="page" id="page-calls"></section>
-        <section class="page" id="page-quality"></section>
-        <section class="page" id="page-reports"></section>
-        <section class="page" id="page-settings"></section>
-      </div>
-    </main>
-  </div>
-  <div class="toast-stack" id="toast-stack" aria-live="polite"></div>
-  <div class="modal-backdrop" id="modal-backdrop" hidden><section class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"></section></div>
-  <script src="app.js"></script>
-  <script src="admin-enhancements.js"></script>
-  <script src="connection-enhancements.js"></script>
+  <main class="staff-login">
+    <section class="staff-card" aria-labelledby="staff-title">
+      <div class="staff-mark" aria-hidden="true">✦</div>
+      <h1 id="staff-title">Sign in</h1>
+      <p>Continue to your BPO SYSTEM workspace.</p>
+      <form id="staff-form">
+        <label class="staff-field">Working email<input name="email" type="email" autocomplete="username" placeholder="name@company.com" required /></label>
+        <label class="staff-field">Password<input name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required /></label>
+        <button class="staff-submit" type="submit">Continue</button>
+        <div class="staff-error" id="staff-error">Enter your work email and password to continue.</div>
+      </form>
+      <p class="staff-note">Secure access to your assigned workspace.</p>
+    </section>
+  </main>
+  <script>
+    document.getElementById('staff-form').addEventListener('submit', (event) => {
+      event.preventDefault()
+      const data = new FormData(event.currentTarget)
+      if (!data.get('email') || !data.get('password')) { document.getElementById('staff-error').style.display = 'block'; return }
+      sessionStorage.setItem('bpoStaffSignedIn', 'true')
+      window.location.href = '/staff.html'
+    })
+  </script>
 </body>
 </html>
