@@ -28,6 +28,12 @@ Open:
 - Staff workspace: http://127.0.0.1:3000/staff.html
 - Staff sign in: http://127.0.0.1:3000/login
 
+## Live Vercel deployment
+
+- Staff workspace: https://bpo-system-omega.vercel.app/staff.html
+- Admin sign in: https://bpo-system-omega.vercel.app/admin-login.html
+- Admin dashboard: https://bpo-system-omega.vercel.app/dashboard.html
+
 The project is a browser-based static frontend. Dashboard state is stored in browser local storage. The MongoDB connection panel is included as a UI placeholder for a future server-side database API.
 
 ## MongoDB database
