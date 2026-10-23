@@ -6,11 +6,11 @@ Local BPO operations dashboard with an admin workspace, staff workspace, task co
 
 ### Admin overview
 
-![BPO SYSTEM admin overview](screenshots/admin-overview.png)
+![BPO SYSTEM admin overview](screenshots/admin-overview-v2.png)
 
 ### Staff workspace
 
-![BPO SYSTEM staff workspace](screenshots/staff-workspace.png)
+![BPO SYSTEM staff workspace](screenshots/staff-workspace-v2.png)
 
 Open the [staff workspace locally](http://127.0.0.1:3000/staff.html) to use the live task controls.
 
