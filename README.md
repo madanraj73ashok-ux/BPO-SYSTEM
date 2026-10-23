@@ -2,6 +2,16 @@
 
 Local BPO operations dashboard with an admin workspace, staff workspace, task controls, period-based overview metrics, and staff data exports.
 
+## Screenshots
+
+### Admin overview
+
+![BPO SYSTEM admin overview](screenshots/admin-overview.png)
+
+### Staff workspace
+
+![BPO SYSTEM staff workspace](screenshots/staff-workspace.png)
+
 ## Run locally
 
 Requirements: Node.js 18 or newer.
