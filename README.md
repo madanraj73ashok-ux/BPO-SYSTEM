@@ -12,6 +12,8 @@ Local BPO operations dashboard with an admin workspace, staff workspace, task co
 
 ![BPO SYSTEM staff workspace](screenshots/staff-workspace.png)
 
+Open the [staff workspace locally](http://127.0.0.1:3000/staff.html) to use the live task controls.
+
 ## Run locally
 
 Requirements: Node.js 18 or newer.
