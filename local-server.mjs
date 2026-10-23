@@ -20,7 +20,7 @@ createServer(async (req, res) => {
       body = Buffer.from(body.toString().replace('<body>', '<body><script>if(sessionStorage.getItem("bpoStaffSignedIn")!=="true"){location.replace("/login")}</script>').replace('</body>', '<script src="/staff-enhancements.js"></script></body>'))
     }
     if (relative === '/index.html') {
-      body = Buffer.from(body.toString().replace('</body>', '<script src="/admin-enhancements.js"></script></body>'))
+      body = Buffer.from(body.toString().replace('</body>', '<script src="/admin-enhancements.js"></script><script src="/connection-enhancements.js"></script></body>'))
     }
     res.writeHead(200, { 'Content-Type': types[extname(file)] || 'application/octet-stream', 'Cache-Control': 'no-store' })
     res.end(body)

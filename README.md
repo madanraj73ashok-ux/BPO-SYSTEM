@@ -32,10 +32,10 @@ The project is a browser-based static frontend. Dashboard state is stored in bro
 
 ## MongoDB database
 
-Use MongoDB as the persistent database for BPO data. Install MongoDB Community Server and run the MongoDB service locally, then use this connection URI in the BPO database configuration:
+Use MongoDB Atlas as the persistent database for BPO data. Configure the Atlas connection in Vercel as a server-side environment variable:
 
 ```text
-mongodb://127.0.0.1:27017/bpo_system
+MONGODB_URI=mongodb+srv://<atlas-user>:<atlas-password>@<atlas-cluster>/bpo_system
 ```
 
 Store staff profiles, approval status, assignments, calls, tickets, attendance, billing, SLA records, complaints, recruitment records, and performance data in MongoDB collections. A server-side API should read and write these collections; browser local storage is only a temporary fallback for the static demo.
@@ -46,4 +46,4 @@ The admin overview includes **Download data** on each staff member card. It down
 
 Staff pages are protected by the sign-in session. Opening `/staff.html` directly redirects to `/login` until the staff member submits the login form.
 
-For MongoDB Atlas, replace the local URI with the connection string provided by your Atlas cluster and keep the URI in a server-side environment variable rather than committing credentials to GitHub.
+Never put the real Atlas URI, username, or password in the frontend or commit it to GitHub. The repository contains only the safe placeholder above.
