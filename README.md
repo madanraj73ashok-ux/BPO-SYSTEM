@@ -29,3 +29,15 @@ Open:
 - Staff sign in: http://127.0.0.1:3000/login
 
 The project is a browser-based static frontend. Dashboard state is stored in browser local storage. The MongoDB connection panel is included as a UI placeholder for a future server-side database API.
+
+## MongoDB database
+
+Use MongoDB as the persistent database for BPO data. Install MongoDB Community Server and run the MongoDB service locally, then use this connection URI in the BPO database configuration:
+
+```text
+mongodb://127.0.0.1:27017/bpo_system
+```
+
+Store staff profiles, approval status, assignments, calls, tickets, attendance, billing, SLA records, complaints, recruitment records, and performance data in MongoDB collections. A server-side API should read and write these collections; browser local storage is only a temporary fallback for the static demo.
+
+For MongoDB Atlas, replace the local URI with the connection string provided by your Atlas cluster and keep the URI in a server-side environment variable rather than committing credentials to GitHub.
